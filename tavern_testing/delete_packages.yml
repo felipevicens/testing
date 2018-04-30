@@ -1,0 +1,12 @@
+#get token
+test_name: delete_packages
+#delete packages
+stages:
+  - name: delete_packages
+    request:
+      url: http://sp.int3.sonata-nfv.eu:4002/catalogues/clean
+      method: DELETE
+    response:
+      status_code: 200
+
+
