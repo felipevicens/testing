@@ -6,12 +6,12 @@ mqtt:
 #    transport: websockets
 #    client_id: tavern-tester
   connect:
-    host: 172.17.0.2
+    host: 143.233.127.27
     port: 1883
     timeout: 3
   auth:
-    username: mqtt-test
-    password: mqtt-test
+    username: guest
+    password: guest
 
 stages:
   - name: test 1 - send text 1
@@ -31,6 +31,7 @@ stages:
       topic: /amq/topic/topic_2
       payload: prueba_2asd
       timeout: 2
+
 
 
 

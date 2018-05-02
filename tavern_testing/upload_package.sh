@@ -18,9 +18,38 @@ comilla="\""
 
 Result=$(curl -v -i -X POST -H "Authorization:Bearer $token" -F ""package=@$PKG"" ""$URL"")
 
+
+created_at="created_at"
+
+if echo "$Result" | grep "$created_at"
+then
+  echo
+  echo "Package uploaded correctly"
+  echo
+  echo "Uploaded Package info:"
+  echo
+  echo "$Result"
+  echo
+  echo "Message sended to the Message Broker"
+  MSG=$(tavern-ci mqqt.yml)
+  echo 
+  echo
+else
+  echo
+  echo "Error uploading the package. Check the description"
+  echo
+  echo "ERROR Description:" 
+  echo
+  echo "$Result"
+  echo 
+  echo
+fi
+
+
 echo
+#echo "showing result:"
+#echo $Result
 echo
-echo RESULT:
-echo $Result
-echo
-echo
+
+
+
